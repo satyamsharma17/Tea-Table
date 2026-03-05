@@ -16,7 +16,9 @@ export default defineConfig(async () => ({
   server: {
     port: 1420,
     strictPort: true,
-    host: host || false,
+    // Use 127.0.0.1 explicitly — on Windows, 'localhost' can resolve to ::1 (IPv6)
+    // which causes a connection refused when Tauri's devUrl is 127.0.0.1
+    host: host || "127.0.0.1",
     hmr: host
       ? {
           protocol: "ws",
