@@ -159,11 +159,11 @@ export default function FloatingStudio() {
 
         {/* Mic button — left of music */}
         <button
-          className={`fl-cb fl-cb-mic ${!isMuted ? "fl-cb-mic-live" : ""}`}
-          title={isMuted ? "Unmute — start call" : "Mute — leave call"}
+          className={`fl-cb fl-cb-mic ${isMuted ? "fl-cb-mic-muted" : "fl-cb-mic-live"}`}
+          title={isMuted ? "Join voice call" : "Leave call (mic live)"}
           onClick={toggleMic}
         >
-          {isMuted ? "🔇" : "🎤"}
+          {isMuted ? "🔇" : "🎙️"}
           {callParticipantCount > 0 && (
             <span className="fl-cb-badge">{callParticipantCount}</span>
           )}

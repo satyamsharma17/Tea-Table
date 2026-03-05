@@ -283,15 +283,31 @@
 }
 .fl-cb-break:hover { background: #2c2208; }
 
+/* Mic muted / not in call — dimmed red-cross look */
+.fl-cb-mic-muted {
+  border-color: #2a2a30;
+  background: #17171b;
+  color: #444450;
+  opacity: 0.7;
+}
+.fl-cb-mic-muted:hover {
+  background: #22222a;
+  border-color: #3a3a44;
+  color: #888;
+  opacity: 1;
+}
+
 /* Mic live (in call) — red pulse ring */
 .fl-cb-mic-live {
   border-color: #7f1c1c;
   background: #3b0d0d;
+  color: #f87171;
   animation: fl-mic-pulse 1.8s ease-in-out infinite;
 }
+.fl-cb-mic-live:hover { background: #4f1111; }
 @keyframes fl-mic-pulse {
-  0%, 100% { box-shadow: 0 0 0 0   rgba(239, 68, 68, 0.35); }
-  50%       { box-shadow: 0 0 0 5px rgba(239, 68, 68, 0);    }
+  0%, 100% { box-shadow: 0 0 0 0   rgba(239, 68, 68, 0.40); }
+  50%       { box-shadow: 0 0 0 6px rgba(239, 68, 68, 0);    }
 }
 
 /* Participant count badge on mic button */
