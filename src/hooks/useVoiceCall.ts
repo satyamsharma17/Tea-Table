@@ -19,7 +19,6 @@ import {
   ref,
   set,
   onValue,
-  off,
   push,
   remove,
 } from "firebase/database";
@@ -140,6 +139,10 @@ export function useVoiceCall() {
 
       if (imOfferer) {
         // --- I am the offerer ---
+        // Clear any stale signals from a previous call so the answerer
+        // doesn't process an old offer/answer and break the handshake.
+        await remove(ref(db, `voice-call/signals/${pid}`)).catch(() => {});
+
         const offer = await pc.createOffer();
         await pc.setLocalDescription(offer);
         await set(ref(db, `voice-call/signals/${pid}/offer`), {
@@ -157,7 +160,7 @@ export function useVoiceCall() {
             .catch(() => {});
           await drainPending(state);
         });
-        state.cleanupFns.push(() => off(answerRef));
+        state.cleanupFns.push(unsubAnswer);
 
         // Listen for their candidates
         const theirRef = ref(db, theirCandPath);
@@ -167,10 +170,7 @@ export function useVoiceCall() {
             handleIncomingCandidate(state, child.key!, child.val())
           );
         });
-        state.cleanupFns.push(() => off(theirRef));
-
-        void unsubAnswer;
-        void unsubCands;
+        state.cleanupFns.push(unsubCands);
       } else {
         // --- I am the answerer ---
         const offerRef = ref(db, `voice-call/signals/${pid}/offer`);
@@ -188,7 +188,7 @@ export function useVoiceCall() {
             sdp: answer.sdp,
           });
         });
-        state.cleanupFns.push(() => off(offerRef));
+        state.cleanupFns.push(unsubOffer);
 
         // Listen for their candidates
         const theirRef = ref(db, theirCandPath);
@@ -198,10 +198,7 @@ export function useVoiceCall() {
             handleIncomingCandidate(state, child.key!, child.val())
           );
         });
-        state.cleanupFns.push(() => off(theirRef));
-
-        void unsubOffer;
-        void unsubCands;
+        state.cleanupFns.push(unsubCands);
       }
     },
     [myUid, drainPending, handleIncomingCandidate]
@@ -234,7 +231,11 @@ export function useVoiceCall() {
     localStreamRef.current?.getTracks().forEach((t) => t.stop());
     localStreamRef.current = null;
 
+    // Clean up signal data in Firebase so stale offers/answers don't
+    // interfere with the next call session.
     for (const uid of Object.keys(peersRef.current)) {
+      const pid = pairId(myUid, uid);
+      remove(ref(db, `voice-call/signals/${pid}`)).catch(() => {});
       disconnectFromPeer(uid);
     }
 
