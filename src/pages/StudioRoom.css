@@ -1,0 +1,130 @@
+/* ── Studio shell (main window — minimal control panel) ── */
+.studio-shell {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background: #0e0e11;
+  color: #e0e0e0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  -webkit-app-region: drag;
+}
+
+.shell-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 20px 20px 16px;
+  border-bottom: 1px solid #1c1c1f;
+  flex-shrink: 0;
+}
+
+.shell-logo { font-size: 26px; }
+
+.shell-title {
+  display: block;
+  font-size: 15px;
+  font-weight: 700;
+  color: #e8e8e8;
+  letter-spacing: -0.3px;
+}
+
+.shell-sub {
+  display: block;
+  font-size: 11px;
+  color: #3a3a44;
+  margin-top: 1px;
+}
+
+.shell-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  padding: 24px 20px;
+  -webkit-app-region: no-drag;
+}
+
+.shell-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+
+.shell-stat-num {
+  font-size: 48px;
+  font-weight: 800;
+  color: #10b981;
+  line-height: 1;
+  letter-spacing: -3px;
+}
+
+.shell-stat-label {
+  font-size: 11px;
+  color: #444;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 600;
+}
+
+.shell-hint {
+  font-size: 12px;
+  color: #383840;
+  text-align: center;
+  line-height: 1.6;
+  max-width: 200px;
+  margin: 0;
+}
+
+.shell-btn {
+  background: #10b981;
+  color: #000;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 20px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.15s;
+}
+
+.shell-btn:hover { opacity: 0.85; }
+
+.shell-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 20px;
+  border-top: 1px solid #1c1c1f;
+  flex-shrink: 0;
+  -webkit-app-region: no-drag;
+}
+
+.shell-user {
+  font-size: 11px;
+  color: #343440;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  flex: 1;
+  margin-right: 8px;
+}
+
+.shell-signout {
+  background: none;
+  border: 1px solid #222228;
+  color: #555;
+  border-radius: 6px;
+  padding: 4px 10px;
+  font-size: 11px;
+  cursor: pointer;
+  transition: all 0.15s;
+  flex-shrink: 0;
+}
+
+.shell-signout:hover {
+  color: #f87171;
+  border-color: #7f1d1d;
+}

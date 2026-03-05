@@ -1,0 +1,43 @@
+.freak-guy * {
+  transform-box: fill-box;
+}
+
+#fr-leg-left {
+  transform-origin: 104px 318px;
+  animation: fr-walk-left 0.9s ease-in-out infinite;
+}
+
+#fr-leg-right {
+  transform-origin: 222px 318px;
+  animation: fr-walk-right 0.9s ease-in-out infinite;
+}
+
+#fr-drill {
+  transform-origin: 256px 265px;
+  animation: fr-drill-bob 2s ease-in-out infinite;
+}
+
+#fr-arm {
+  transform-origin: 163px 283px;
+  animation: fr-arm-wave 1.6s ease-in-out infinite;
+}
+
+@keyframes fr-walk-left {
+  0%, 100% { transform: rotate(-13deg); }
+  50%       { transform: rotate(13deg); }
+}
+
+@keyframes fr-walk-right {
+  0%, 100% { transform: rotate(13deg); }
+  50%       { transform: rotate(-13deg); }
+}
+
+@keyframes fr-drill-bob {
+  0%, 100% { transform: rotate(-4deg); }
+  50%       { transform: rotate(4deg); }
+}
+
+@keyframes fr-arm-wave {
+  0%, 100% { transform: rotate(-7deg); }
+  50%       { transform: rotate(7deg); }
+}

@@ -1,0 +1,43 @@
+.alien-guy * {
+  transform-box: fill-box;
+}
+
+#al-leg-left {
+  transform-origin: 201px 326px;
+  animation: al-walk-left 0.9s ease-in-out infinite;
+}
+
+#al-leg-right {
+  transform-origin: 319px 326px;
+  animation: al-walk-right 0.9s ease-in-out infinite;
+}
+
+#al-arm {
+  transform-origin: 270px 231px;
+  animation: al-arm-wave 1.8s ease-in-out infinite;
+}
+
+#al-dial {
+  transform-origin: 260px 305px;
+  animation: al-dial-spin 4s linear infinite;
+}
+
+@keyframes al-walk-left {
+  0%, 100% { transform: rotate(-13deg); }
+  50%       { transform: rotate(13deg); }
+}
+
+@keyframes al-walk-right {
+  0%, 100% { transform: rotate(13deg); }
+  50%       { transform: rotate(-13deg); }
+}
+
+@keyframes al-arm-wave {
+  0%, 100% { transform: rotate(-6deg); }
+  50%       { transform: rotate(6deg); }
+}
+
+@keyframes al-dial-spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}

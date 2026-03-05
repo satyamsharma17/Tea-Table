@@ -1,0 +1,46 @@
+/* ── Robot SVG animations ───────────────────────────────────────── */
+
+.robot-guy {
+  display: block;
+  overflow: visible;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.35));
+}
+
+/* ── Left arm — reach out ───────────────────────────────────────── */
+#rb-arm-left {
+  transform-box: fill-box;
+  transform-origin: 80% 20%;
+  animation: rb-reach 1.3s ease-in-out infinite alternate;
+}
+
+/* ── Right arm — opposite phase ─────────────────────────────────── */
+#rb-arm-right {
+  transform-box: fill-box;
+  transform-origin: 20% 20%;
+  animation: rb-reach 1.3s ease-in-out infinite alternate-reverse;
+}
+
+/* ── Left leg ───────────────────────────────────────────────────── */
+#rb-leg-left {
+  transform-box: fill-box;
+  transform-origin: 50% 0%;
+  animation: rb-walk 1.0s ease-in-out infinite alternate;
+}
+
+/* ── Right leg ──────────────────────────────────────────────────── */
+#rb-leg-right {
+  transform-box: fill-box;
+  transform-origin: 50% 0%;
+  animation: rb-walk 1.0s ease-in-out infinite alternate-reverse;
+}
+
+/* ── Keyframes ──────────────────────────────────────────────────── */
+@keyframes rb-reach {
+  0%   { transform: rotate(-8deg); }
+  100% { transform: rotate(12deg); }
+}
+
+@keyframes rb-walk {
+  0%   { transform: rotate(-10deg); }
+  100% { transform: rotate(10deg);  }
+}

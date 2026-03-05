@@ -1,0 +1,37 @@
+.status-selector {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.status-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  background: #1a1a1e;
+  border: 1.5px solid #2a2a2e;
+  border-radius: 20px;
+  color: #ccc;
+  font-size: 13px;
+  font-weight: 500;
+  font-family: "Inter", sans-serif;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.status-btn:hover {
+  border-color: #4a4a52;
+}
+
+.status-btn.active {
+  color: #f0f0f0;
+}
+
+.status-emoji {
+  font-size: 14px;
+}
+
+.status-label {
+  font-size: 12px;
+}

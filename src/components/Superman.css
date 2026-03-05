@@ -1,0 +1,47 @@
+/* ── Superman SVG animations ────────────────────────────────────── */
+
+.superman-guy {
+  display: block;
+  overflow: visible;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.35));
+}
+
+/* ── Left arm — heroic pose ─────────────────────────────────────── */
+#sm-arm-left {
+  transform-box: fill-box;
+  transform-origin: 80% 15%;
+  animation: sm-pose 1.4s ease-in-out infinite alternate;
+}
+
+/* ── Right arm — opposite phase ─────────────────────────────────── */
+#sm-arm-right {
+  transform-box: fill-box;
+  transform-origin: 20% 15%;
+  animation: sm-pose 1.4s ease-in-out infinite alternate-reverse;
+}
+
+/* ── Left leg ───────────────────────────────────────────────────── */
+#sm-leg-left {
+  transform-box: fill-box;
+  transform-origin: 50% 0%;
+  animation: sm-walk 0.95s ease-in-out infinite alternate;
+}
+
+/* ── Right leg ──────────────────────────────────────────────────── */
+#sm-leg-right {
+  transform-box: fill-box;
+  transform-origin: 50% 0%;
+  animation: sm-walk 0.95s ease-in-out infinite alternate-reverse;
+}
+
+/* ── Keyframes ──────────────────────────────────────────────────── */
+@keyframes sm-pose {
+  0%   { transform: rotate(-14deg); }
+  50%  { transform: rotate(10deg);  }
+  100% { transform: rotate(-7deg);  }
+}
+
+@keyframes sm-walk {
+  0%   { transform: rotate(-12deg); }
+  100% { transform: rotate(12deg);  }
+}

@@ -1,0 +1,47 @@
+/* ── Wolverine SVG animations ───────────────────────────────────── */
+
+.wolverine-guy {
+  display: block;
+  overflow: visible;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.35));
+}
+
+/* ── Left arm — slash forward ───────────────────────────────────── */
+#wv-arm-left {
+  transform-box: fill-box;
+  transform-origin: 80% 20%;          /* pivot near shoulder */
+  animation: wv-slash-left 1.1s ease-in-out infinite alternate;
+}
+
+/* ── Right arm — opposite phase ─────────────────────────────────── */
+#wv-arm-right {
+  transform-box: fill-box;
+  transform-origin: 20% 20%;
+  animation: wv-slash-left 1.1s ease-in-out infinite alternate-reverse;
+}
+
+/* ── Left leg — walk ────────────────────────────────────────────── */
+#wv-leg-left {
+  transform-box: fill-box;
+  transform-origin: 50% 0%;
+  animation: wv-walk 0.9s ease-in-out infinite alternate;
+}
+
+/* ── Right leg — opposite phase ─────────────────────────────────── */
+#wv-leg-right {
+  transform-box: fill-box;
+  transform-origin: 50% 0%;
+  animation: wv-walk 0.9s ease-in-out infinite alternate-reverse;
+}
+
+/* ── Keyframes ──────────────────────────────────────────────────── */
+@keyframes wv-slash-left {
+  0%   { transform: rotate(-10deg); }
+  60%  { transform: rotate(14deg);  }
+  100% { transform: rotate(-5deg);  }
+}
+
+@keyframes wv-walk {
+  0%   { transform: rotate(-11deg); }
+  100% { transform: rotate(11deg);  }
+}

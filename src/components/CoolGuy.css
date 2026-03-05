@@ -1,0 +1,67 @@
+/* ── CoolGuy SVG animations ─────────────────────────────────────── */
+
+/* The SVG element itself */
+.cool-guy {
+  display: block;
+  overflow: visible;      /* legs/arms swing outside bounding box */
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.35));
+}
+
+/* ── Left leg — forward swing  ──────────────────────────────────── */
+#cg-leg-left {
+  transform-box: fill-box;
+  transform-origin: 50% 0%;          /* pivot at top of leg (hip) */
+  animation: cg-walk-fwd 0.9s ease-in-out infinite alternate;
+}
+
+/* ── Right leg — backward (opposite phase) ──────────────────────── */
+#cg-leg-right {
+  transform-box: fill-box;
+  transform-origin: 50% 0%;
+  animation: cg-walk-fwd 0.9s ease-in-out infinite alternate-reverse;
+}
+
+/* ── Left shoe mirrors left leg ─────────────────────────────────── */
+#cg-shoe-left {
+  transform-box: fill-box;
+  transform-origin: 50% 0%;
+  animation: cg-walk-fwd 0.9s ease-in-out infinite alternate;
+}
+
+/* ── Right shoe mirrors right leg ───────────────────────────────── */
+#cg-shoe-right {
+  transform-box: fill-box;
+  transform-origin: 50% 0%;
+  animation: cg-walk-fwd 0.9s ease-in-out infinite alternate-reverse;
+}
+
+/* ── Body — gentle idle bob ─────────────────────────────────────── */
+#cg-body {
+  transform-box: fill-box;
+  transform-origin: 50% 50%;
+  animation: cg-bob 1.8s ease-in-out infinite alternate;
+}
+
+/* ── Monocle arm — wave / raise ─────────────────────────────────── */
+#cg-arm {
+  transform-box: fill-box;
+  transform-origin: 50% 80%;         /* pivot near shoulder joint */
+  animation: cg-arm-wave 1.4s ease-in-out infinite alternate;
+}
+
+/* ── Keyframes ──────────────────────────────────────────────────── */
+@keyframes cg-walk-fwd {
+  0%   { transform: rotate(-13deg); }
+  100% { transform: rotate(13deg);  }
+}
+
+@keyframes cg-bob {
+  0%   { transform: translateY(0px);   }
+  100% { transform: translateY(-4px);  }
+}
+
+@keyframes cg-arm-wave {
+  0%   { transform: rotate(-12deg); }
+  40%  { transform: rotate(18deg);  }
+  100% { transform: rotate(-6deg);  }
+}

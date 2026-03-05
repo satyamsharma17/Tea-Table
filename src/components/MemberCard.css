@@ -1,0 +1,49 @@
+.member-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  transition: background-color 0.2s;
+}
+
+.member-card:hover {
+  background: #1a1a1e;
+}
+
+.member-card.offline {
+  opacity: 0.5;
+}
+
+.member-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.member-name {
+  font-size: 14px;
+  font-weight: 500;
+  color: #f0f0f0;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.member-you {
+  font-size: 10px;
+  font-weight: 500;
+  color: #777;
+  background: #2a2a2e;
+  padding: 1px 6px;
+  border-radius: 4px;
+}
+
+.member-status {
+  font-size: 12px;
+  font-weight: 500;
+}
